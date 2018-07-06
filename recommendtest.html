@@ -5,5 +5,22 @@
 	<button onclick = "submit();">submit</button>
 	<p id="ans"></p>
 
+	<script>
+		function submit()
+		{
+			console.log("in func");
+			var user_id = document.getElementById('uid').value;
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				console.log("in func2");
+			    if (this.readyState == 4 && this.status == 200) {
+			     	document.getElementById('ans').innerHTML = this.responseText;
+			     console.log("in if");
+			    }
+			  };
+			  xhttp.open("GET", "recommendtest.php?user_id="+user_id, true);
+			  xhttp.send();
+		}
+	</script>
 </body>
 </html>
