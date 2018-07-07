@@ -1,9 +1,9 @@
 <?php
 
-$table_names = array('category','users', 'ratings', 'books', 'groups', 'group_members', 'books_read');
+$table_names = array('books_read','group_members','groups', 'wishlist', 'cart', 'sold_books', 'books_on_sale', 'books'
+				,'ratings','users','category');
 
-
-$conn = mysqli_connect("localhost","root","","bookrecommender");
+$conn = mysqli_connect("localhost","id6411411_ibookie","iBookie@123","id6411411_ibookie");
 
 $flag = true;
 
@@ -14,7 +14,7 @@ foreach($table_names as $k)
 
     if(!$res) 
     {
-        echo "drop not successful for table " .$k ."<br/>";
+        echo "drop not successful for table " .$k ."<br/>Error:" . mysqli_error($conn) . "<br/>";
         $flag = false;
     }
 }
