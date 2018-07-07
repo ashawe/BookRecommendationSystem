@@ -9,7 +9,6 @@
 		echo "db was not created<br/>";
 	}
 
-
 	$conn = mysqli_connect("localhost","root","","bookrecommender");
 	$tables = array(
 
