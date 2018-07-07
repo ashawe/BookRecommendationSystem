@@ -202,14 +202,17 @@
 							$res=mysqli_query($conn,$sql);
 							$row=mysqli_fetch_assoc($res);
 							$cat_id=$row["cat_id"];
+							echo $cat_id;
 							$sql1="select b.price,b.book_id,a.image_url,a.book_name from book_on_sell  AS b JOIN books AS a ON b.book_id=a.book_id AND a.cat_id = '$cat_id'";
+
+							echo $sql1;
 							$result=mysqli_query($conn,$sql1);
 							while($row1=mysqli_fetch_assoc($result))
 							{
-								$book_id=row["book_id"];
-								$price=$row["price"];
-								$name=$row["book_name"];
-								$image_url=$row["image_url"];
+								$book_id=$row1["book_id"];
+								$price=$row1["price"];
+								$name=$row1["book_name"];
+								$image_url=$row1["image_url"];
 							
 							?>
 
