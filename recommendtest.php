@@ -1,13 +1,13 @@
 <?php
 
-$conn = mysqli_connect("localhost","root","","bookrecommender");
+$conn = mysqli_connect("localhost","id6411411_ibookie","iBookie@123","id6411411_ibookie");
 
 if($_SERVER['REQUEST_METHOD']=="GET")
 {
 
 	function getBooksRead()
 	{
-		$con = mysqli_connect("localhost","root","","bookrecommender");
+		$con = mysqli_connect("localhost","id6411411_ibookie","iBookie@123","id6411411_ibookie");
 		$id = $_GET['user_id'];
 		$readBooksQuery = "SELECT book_name FROM books WHERE book_id IN (SELECT book_id FROM books_read WHERE user_id =".$id.")";
 		$readBooks = mysqli_query($con,$readBooksQuery);
@@ -28,7 +28,7 @@ if($_SERVER['REQUEST_METHOD']=="GET")
 	function getUserName()
 	{
 			$id = $_GET['user_id'];
-			$conn = mysqli_connect("localhost","root","","bookrecommender");
+			$conn = mysqli_connect("localhost","id6411411_ibookie","iBookie@123","id6411411_ibookie");
 			$query="SELECT user_name FROM users WHERE user_id=" . $id;
 			$result = mysqli_query($conn,$query);
 			$row = $result->fetch_array();
@@ -37,7 +37,7 @@ if($_SERVER['REQUEST_METHOD']=="GET")
 
 	function getRecommendationBasedOnOtherUsers()
 	{
-		$conn = mysqli_connect("localhost","root","","bookrecommender");
+		$conn = mysqli_connect("localhost","id6411411_ibookie","iBookie@123","id6411411_ibookie");
 		$id = $_GET['user_id'];
 
 		//Books User Has Not Read
@@ -75,7 +75,7 @@ if($_SERVER['REQUEST_METHOD']=="GET")
 
 	function getRecommendationBasedOnGenre()
 	{
-		$conn = mysqli_connect("localhost","root","","bookrecommender");
+		$conn = mysqli_connect("localhost","id6411411_ibookie","iBookie@123","id6411411_ibookie");
 		$id = $_GET['user_id'];
 
 		//Books user has not read

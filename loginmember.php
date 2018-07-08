@@ -32,7 +32,13 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
             {
                 if(mysqli_num_rows($result)==1)
                 {
+                    $row=mysqli_fetch_assoc($result);
+                    $cookie_value=$row["user_id"];
+                    //setting cookies
+                    $cookie_name = "userid";
+                    setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
                     echo "Success";
+                    
                 }
                 else
                 {
